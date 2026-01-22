@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Colors - Obsidian Void */
+    --bg-dark: #000000;
+    /* True Void */
+    --text-main: #ffffff;
+    --text-muted: #a3a3a3;
+
+    /* Accents - Aurora */
+    --aurora-1: #2e1065;
+    /* Deep Violet */
+    --aurora-2: #172554;
+    /* Midnight Blue */
+    --aurora-3: #4c1d95;
+    /* Lighter Violet */
+    --accent: #fff;
+    /* Stark White for contrast */
+
+    /* Spotlight */
+    --spotlight-size: 400px;
+    --spotlight-color: rgba(255, 255, 255, 0.08);
+
+    /* Fonts */
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --container-width: 1200px;
+}
