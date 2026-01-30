@@ -2,7 +2,7 @@
 
 The **Obsidian Void** is a high-performance, cinematic portfolio designed to showcase cloud architecture expertise and DevOps engineering projects. Built with a focus on modern aesthetics ("Deep Dark" theme), interactivity, and speed.
 
-![Portfolio Preview](src/assets/profile.png)
+
 
 ## 🚀 Key Features
 
