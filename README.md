@@ -1,16 +1,58 @@
-# React + Vite
+# Krishna Fattepurkar | DevOps & Cloud Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The **Obsidian Void** is a high-performance, cinematic portfolio designed to showcase cloud architecture expertise and DevOps engineering projects. Built with a focus on modern aesthetics ("Deep Dark" theme), interactivity, and speed.
 
-Currently, two official plugins are available:
+![Portfolio Preview](src/assets/profile.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## React Compiler
+*   **Obsidian Void Aesthetic**: True black backgrounds, "Aurora" nebula effects, and glassmorphism.
+*   **Spotlight Interactions**: Mouse-tracking radial gradients on all interactive cards.
+*   **Responsive Design**: Mobile-first layout with a custom floating "Dock" navigation.
+*   **Dynamic Content**: 
+    *   **Featured Work**: Curated DevOps/Cloud projects with custom visual assets.
+    *   **Knowledge Base**: Technical articles on Kubernetes, Terraform, and CI/CD.
+    *   **Study Notes**: Dedicated resources for AWS Certifications.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+This project is built with a modern, lightweight frontend stack:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Core**: [React](https://react.dev/) + [Vite](https://vitejs.dev/) (Fast, efficient build tool)
+*   **Animations**: [Framer Motion](https://www.framer.com/motion/) (Complex gestures and layout transitions)
+*   **Icons**: [Lucide React](https://lucide.dev/) (Clean, consistent SVG icons)
+*   **Routing**: [React Router](https://reactrouter.com/) (Client-side routing with HashHistory for GitHub Pages)
+*   **Deployment**: [GitHub Actions](https://github.com/features/actions) + [GitHub Pages](https://pages.github.com/)
+
+## 📦 Installation & Setup
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Techikrish/devops-portfolio.git
+    cd devops-portfolio
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run locally**:
+    ```bash
+    npm run dev
+    ```
+    Visit `http://localhost:5173/devops-portfolio/` to view the site.
+
+4.  **Build for production**:
+    ```bash
+    npm run build
+    ```
+
+## 🚢 Deployment
+
+This project relies on **GitHub Actions** for automated deployment.
+Any push to the `main` branch triggers the workflow in `.github/workflows/deploy.yml`, which builds the site and pushes the artifacts to the `gh-pages` branch.
+
+---
+
+© 2026 Krishna Fattepurkar. Designed in the Void.
