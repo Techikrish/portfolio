@@ -1,4 +1,5 @@
 import blog1 from '../assets/blog1.png';
+import cicd from '../assets/cicd.png';
 import blog2 from '../assets/blog2.png';
 import blog3 from '../assets/blog3.png';
 import blog4 from '../assets/blog4.png';
@@ -10,6 +11,14 @@ import ekscluster from '../assets/ekscluster.png';
 import http from '../assets/http.png';
 
 export const articles = [
+    {
+        title: 'Building a Production-Ready CI/CD Pipeline: The Complete 2026 Guide',
+        summary: 'This guide walks you through building a CI/CD pipeline thats fast, secure, and reliable.',
+        date: 'Jan 08, 2026',
+        tags: ['CI/CD', 'GitHub Actions', 'Sonarqube', 'Docker'],
+        image: cicd,
+        link: 'https://medium.com/@krishnafattepurkar/building-a-production-ready-ci-cd-pipeline-the-complete-2026-guide-b3d6a661ecd8'
+    },
     {
         title: 'Building a Production-Ready EKS Cluster: The Complete 2026 Guide',
         summary: 'Running Kubernetes on AWS sounds straightforward until you actually try it. After years of building and breaking EKS clusters...',

@@ -10,7 +10,7 @@ const Home = () => {
         <>
             <Hero />
             <Projects />
-            <Blog limit={3} />
+            <Blog limit={6} />
             <Notes />
             {/* <Apps /> */}
         </>
