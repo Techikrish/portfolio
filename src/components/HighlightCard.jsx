@@ -2,26 +2,30 @@ import React, { useRef, useState } from 'react';
 
 const HighlightCard = ({ children, className = '', style = {} }) => {
     const divRef = useRef(null);
-    const [isFocused, setIsFocused] = useState(false);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
+    const rafRef = useRef(null);
 
     const handleMouseMove = (e) => {
         if (!divRef.current) return;
 
         const div = divRef.current;
         const rect = div.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        if (rafRef.current) return;
+        rafRef.current = requestAnimationFrame(() => {
+            div.style.setProperty('--spot-x', `${x}px`);
+            div.style.setProperty('--spot-y', `${y}px`);
+            rafRef.current = null;
+        });
     };
 
     const handleFocus = () => {
-        setIsFocused(true);
         setOpacity(1);
     };
 
     const handleBlur = () => {
-        setIsFocused(false);
         setOpacity(0);
     };
 
@@ -43,6 +47,8 @@ const HighlightCard = ({ children, className = '', style = {} }) => {
             onMouseLeave={handleMouseLeave}
             className={className}
             style={{
+                '--spot-x': '50%',
+                '--spot-y': '50%',
                 position: 'relative',
                 overflow: 'hidden',
                 borderRadius: '12px',
@@ -58,23 +64,7 @@ const HighlightCard = ({ children, className = '', style = {} }) => {
                     position: 'absolute',
                     inset: 0,
                     opacity,
-                    background: `natural-radial-gradient(
-                        600px circle at ${position.x}px ${position.y}px,
-                        rgba(255,255,255,0.06),
-                        transparent 40%
-                    )`,
-                    transition: 'opacity 0.2s',
-                    zIndex: 0
-                }}
-            />
-            {/* Spotlight Gradient using radial-gradient standard */}
-            <div
-                style={{
-                    pointerEvents: 'none',
-                    position: 'absolute',
-                    inset: 0,
-                    opacity,
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+                    background: 'radial-gradient(600px circle at var(--spot-x) var(--spot-y), rgba(255,255,255,0.06), transparent 40%)',
                     transition: 'opacity 0.2s',
                     zIndex: 0
                 }}

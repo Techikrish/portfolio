@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Terminal, Cloud, Cpu, Github, Linkedin, Twitter, Activity, Server, Database } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import profileImg from '../assets/profile.png';
 
 const StatusBadge = ({ label, status, color }) => (
@@ -23,7 +22,6 @@ const StatusBadge = ({ label, status, color }) => (
 
 import { ArrowDown, Mail } from 'lucide-react';
 import HighlightCard from './HighlightCard';
-import Section from './Section';
 
 
 const Hero = () => {
@@ -38,12 +36,7 @@ const Hero = () => {
             position: 'relative',
             zIndex: 2
         }}>
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                style={{ textAlign: 'center', marginBottom: '4rem' }}
-            >
+            <div className="fade-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
                 <h1 style={{
                     fontSize: 'clamp(3rem, 6vw, 5.5rem)',
                     lineHeight: '1.1',
@@ -77,13 +70,9 @@ const Hero = () => {
                 }}>
                     Orchestrating resilient cloud architectures and automating the future of infrastructure.
                 </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-            >
+            <div className="fade-up fade-up-delay-1">
                 <HighlightCard style={{ borderRadius: '50%', padding: '5px' }}>
                     <div style={{
                         width: '250px',
@@ -102,7 +91,7 @@ const Hero = () => {
                         />
                     </div>
                 </HighlightCard>
-            </motion.div>
+            </div>
 
             <div style={{
                 marginTop: '4rem',
@@ -135,17 +124,13 @@ const Hero = () => {
                 `}</style>
             </div>
 
-            <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                style={{
-                    position: 'absolute',
-                    bottom: '100px',
-                    color: 'rgba(255,255,255,0.2)'
-                }}
-            >
+            <div className="fade-up fade-up-delay-2" style={{
+                position: 'absolute',
+                bottom: '100px',
+                color: 'rgba(255,255,255,0.2)'
+            }}>
                 <ArrowDown size={24} />
-            </motion.div>
+            </div>
         </section>
     );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Section from './Section';
 import HighlightCard from './HighlightCard';
@@ -8,17 +7,13 @@ import { Link } from 'react-router-dom';
 import { articles } from '../data/blogData';
 
 // BlogCard (Unchanged layout, but ensures cleaner implementation)
-const BlogCard = ({ article, index }) => (
-    <motion.a
+const BlogCard = ({ article }) => (
+    <a
         href={article.link}
         target="_blank"
         rel="noreferrer"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.1, duration: 0.5 }}
-        whileHover={{ scale: 1.02, y: -5 }}
-        style={{ textDecoration: 'none', display: 'block', height: '100%' }}
+        className="smooth-card fade-up"
+        style={{ textDecoration: 'none', display: 'block', height: '100%', transform: 'translateZ(0)' }}
     >
         <HighlightCard style={{ height: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -33,6 +28,8 @@ const BlogCard = ({ article, index }) => (
                     <img
                         src={article.image}
                         alt={article.title}
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                     <div style={{
@@ -50,7 +47,6 @@ const BlogCard = ({ article, index }) => (
                                 background: 'rgba(255,255,255,0.1)',
                                 padding: '4px 10px',
                                 borderRadius: '100px',
-                                backdropFilter: 'blur(4px)'
                             }}>
                                 {tag}
                             </span>
@@ -83,7 +79,7 @@ const BlogCard = ({ article, index }) => (
                 </div>
             </div>
         </HighlightCard>
-    </motion.a>
+    </a>
 );
 
 const Blog = ({ limit }) => {
@@ -92,32 +88,28 @@ const Blog = ({ limit }) => {
     return (
         <Section id="blog" title="Knowledge Base">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
-                {displayArticles.map((a, i) => <BlogCard key={i} article={a} index={i} />)}
+                {displayArticles.map((a, i) => <BlogCard key={i} article={a} />)}
             </div>
 
             {limit && limit < articles.length && (
                 <div style={{ textAlign: 'center' }}>
                     <Link to="/blog" style={{ textDecoration: 'none' }}>
-                        <motion.button
-                            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
-                            whileTap={{ scale: 0.95 }}
-                            style={{
-                                padding: '1rem 2.5rem',
-                                background: 'transparent',
-                                border: '1px solid var(--accent)',
-                                color: '#fff',
-                                borderRadius: '50px',
-                                fontSize: '1rem',
-                                cursor: 'pointer',
-                                fontFamily: 'var(--font-body)',
-                                fontWeight: '500',
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '8px'
-                            }}
-                        >
+                        <button style={{
+                            padding: '1rem 2.5rem',
+                            background: 'transparent',
+                            border: '1px solid var(--accent)',
+                            color: '#fff',
+                            borderRadius: '50px',
+                            fontSize: '1rem',
+                            cursor: 'pointer',
+                            fontFamily: 'var(--font-body)',
+                            fontWeight: '500',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px'
+                        }}>
                             View All Articles <ArrowUpRight size={18} />
-                        </motion.button>
+                        </button>
                     </Link>
                 </div>
             )}

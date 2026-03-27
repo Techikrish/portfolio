@@ -18,6 +18,41 @@ body {
     overflow-x: hidden;
 }
 
+/* Lightweight motion utilities (performance-friendly) */
+.fade-up {
+    animation: fadeUp 0.6s ease-out both;
+}
+
+.fade-up-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.fade-up-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.smooth-card {
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    will-change: transform;
+}
+
+.smooth-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px -16px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 h1,
 h2,
 h3,

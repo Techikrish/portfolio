@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, ExternalLink, Star, GitFork, Lock, Terminal, Cpu, Cloud, Server, Activity } from 'lucide-react';
+import { Lock, Terminal, Cpu, Cloud, Server, Activity } from 'lucide-react';
 import Section from './Section';
 import HighlightCard from './HighlightCard';
 
@@ -11,6 +10,7 @@ import mlopsPredictor from '../assets/ml-insurance.png';
 import awsIamMonitor from '../assets/iam-monitoring.PNG';
 import threeTierAws from '../assets/Three-tier-aws.png';
 import awsCostOptimizer from '../assets/aws-cost-optimizer.png';
+import serverlessAiResumeBuilder from '../assets/serverless-ai-resume-builder.png';
 
 const projects = [
     {
@@ -54,6 +54,16 @@ const projects = [
         image: mlopsPredictor
     },
     {
+        title: 'Serverless AI Resume Builder',
+        desc: 'AI-powered, ATS-focused resume builder on AWS with Bedrock Claude, Lambda, API Gateway, and Terraform-driven serverless deployment.',
+        tags: ['AWS', 'Serverless', 'Terraform', 'Bedrock', 'React'],
+        stars: '0',
+        forks: '0',
+        icon: <Activity size={20} />,
+        link: 'https://github.com/Techikrish/Serverless-AI-Resume-Builder',
+        image: serverlessAiResumeBuilder
+    },
+    {
         title: 'AWS IAM Key Monitor',
         desc: 'Serverless security solution using Lambda and SES. Automatically tracks and alerts on unused or aging IAM access keys.',
         tags: ['AWS Lambda', 'Security', 'Python'],
@@ -75,17 +85,13 @@ const projects = [
     }
 ];
 
-const ProjectCard = ({ project, index }) => (
-    <motion.a
+const ProjectCard = ({ project }) => (
+    <a
         href={project.link}
         target="_blank"
         rel="noreferrer"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.1, duration: 0.5 }}
-        whileHover={{ scale: 1.02, y: -5 }}
-        style={{ textDecoration: 'none', display: 'block', height: '100%', cursor: 'pointer' }}
+        className="smooth-card fade-up"
+        style={{ textDecoration: 'none', display: 'block', height: '100%', cursor: 'pointer', transform: 'translateZ(0)' }}
     >
         <HighlightCard style={{ height: '100%' }}>
             <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -100,6 +106,8 @@ const ProjectCard = ({ project, index }) => (
                     <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                     <div style={{
@@ -108,7 +116,6 @@ const ProjectCard = ({ project, index }) => (
                         right: '15px',
                         zIndex: 2,
                         background: 'rgba(0,0,0,0.6)',
-                        backdropFilter: 'blur(4px)',
                         padding: '6px',
                         borderRadius: '8px',
                         color: 'rgba(255,255,255,0.8)'
@@ -156,14 +163,14 @@ const ProjectCard = ({ project, index }) => (
                 </div>
             </div>
         </HighlightCard>
-    </motion.a>
+    </a>
 );
 
 const Projects = () => {
     return (
         <Section id="projects" title="Featured Work">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
-                {projects.map((p, i) => <ProjectCard key={i} project={p} index={i} />)}
+                {projects.map((p, i) => <ProjectCard key={i} project={p} />)}
             </div>
         </Section>
     );

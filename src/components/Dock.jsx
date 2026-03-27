@@ -74,10 +74,9 @@ const Dock = () => {
             gap: '1rem',
             padding: '12px 24px',
             background: 'rgba(255, 255, 255, 0.03)',
-            backdropFilter: 'blur(12px)',
             border: '1px solid rgba(255, 255, 255, 0.05)',
             borderRadius: '24px',
-            boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)'
+            boxShadow: '0 8px 20px -12px rgba(0,0,0,0.5)'
         }}>
             <DockItem icon={Home} label="Home" onClick={() => handleNavigation('#home')} />
             <DockItem icon={Folder} label="Projects" onClick={() => handleNavigation('#projects')} />

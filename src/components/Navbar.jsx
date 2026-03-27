@@ -14,6 +14,7 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Projects', href: '#projects' },
+        { name: 'Community', href: '#community-study' },
         { name: 'Blog', href: '#blog' },
         { name: 'Apps', href: '#apps' },
     ];
@@ -22,7 +23,6 @@ const Navbar = () => {
         <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-4' : 'py-6'}`}
             style={{
                 background: scrolled ? 'var(--glass-bg)' : 'transparent',
-                backdropFilter: scrolled ? 'var(--glass-blur)' : 'none',
                 borderBottom: scrolled ? 'var(--glass-border)' : 'none'
             }}>
             <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
